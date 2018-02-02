@@ -1,0 +1,15 @@
+actor: ApiTester
+modules:
+    enabled:
+        - REST:
+            depends: PhpBrowser
+            url: http://dev-fbs.local
+        - PhpBrowser
+        - Yii2:
+            part: init
+        - app\tests\ApiHelper
+    config:
+        PhpBrowser:
+            url: http://dev-fbs.local
+            curl:
+              CURLOPT_TIMEOUT: 50000

@@ -1,0 +1,27 @@
+namespace: app\tests
+actor: ApiTester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    log: true
+    colors: true
+    memory_limit: 1024M
+modules:
+    config:
+        Yii2:
+            configFile: 'config/test.php'
+config:
+    test_entry_url: http://dev-fbs.local/index-test.php
+coverage:
+    enabled: true
+    remote: true
+    c3_url: http://dev-fbs.local/index-test.php
+    remote_config: codeception.yml
+    whitelist:
+      include:
+          - modules/v1/controllers/*
+          - helpers/*
